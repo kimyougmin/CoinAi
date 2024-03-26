@@ -1,0 +1,44 @@
+.navigation {
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    height: 40px;
+    padding: 1rem;
+    color: white;
+    background: black;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.naviBtn {
+    display: flex;
+    text-align: center;
+}
+.naviBtn > p {
+    color: white;
+    text-align: center;
+}
+h1 {
+    margin-left: 3%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: white;
+    opacity: 0.8;
+}
+.naviSpan {
+    scroll-margin-left: 0.25rem;
+    scroll-padding: 0.5rem;
+    border-radius: 0.75rem;
+    background-color: currentColor;
+    width: 32px;
+    height: 25px;
+    text-align: center;
+    margin-left: 2px;
+    padding-top: 10px;
+}
+.naviSpan > span {
+    color: black;
+}
