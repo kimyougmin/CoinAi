@@ -26,7 +26,7 @@ function IndexRow({change, iconUrl, symbol, uuid, price, name, sparkline, rank}:
         <div className='indexRow' onClick={onClickHandler}>
             <img className='icon' src={iconUrl} onClick={onClickHandler}/>
             <p style={{width: '15%'}}>{name}</p>
-            {change > 0 ? <PositiveP>{change}</PositiveP> : <NegativeP>{change}</NegativeP>}
+            {change > 0 ? <PositiveP>{change}%</PositiveP> : <NegativeP>{change}%</NegativeP>}
             <p style={{width: '20%'}}>{price}</p>
             <p style={{width: '10%'}}>{symbol}</p>
             <p style={{width: '2%'}}>{rank}</p>

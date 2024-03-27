@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled, { keyframes } from 'styled-components';
+import {useCookies} from "react-cookie";
+import {clearInterval} from "node:timers";
 
 // CSS keyframes
 const jumboAnimation = keyframes`
@@ -51,7 +53,30 @@ const MainContainer = styled.main`
     background-color: black;
   }
 `;
+const options = {
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Key': `${process.env.REACT_APP_CRYPTO_KEY}`,
+        'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
+    }
+};
 function MainScreen() {
+    const [cookies,,] = useCookies(['coinUuid']);
+
+    useEffect(() => {
+        let url = '';
+        if (cookies.coinUuid === undefined) {
+            url = `https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd/history?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`;
+        } else {
+            url = `https://coinranking1.p.rapidapi.com/coin/${cookies.coinUuid}/history?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`;
+        }
+        fetch(url, options)
+            .then((res) => res.json())
+            .then((res) => {console.log(res)})
+            .catch((e) => {
+                console.log(e)
+            })
+    },[])
     return (
         <MainContainer style={{position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center',
             justifyContent: 'center'}} className="relative flex flex-col items-center justify-center transition-bg">

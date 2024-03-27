@@ -86,9 +86,12 @@ function IndexScreen() {
     }
     useEffect(() => {
         coinSelect()
-        setInterval(() => {
+        let interval = setInterval(() => {
            coinSelect()
         }, 5000)
+        return () => {
+            clearInterval(interval)
+        }
     }, [])
 
 
