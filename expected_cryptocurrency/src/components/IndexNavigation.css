@@ -16,9 +16,18 @@
     display: flex;
     text-align: center;
 }
-.naviBtn > p {
-    color: white;
+.naviBtn > p, button {
     text-align: center;
+    border: none;
+    background-color: black;
+}
+.indexBtn {
+    margin-right: 10px;
+    color: red;
+}
+.coinChatBtn {
+    color: white;
+    margin-left: 10px;
 }
 h1 {
     margin-left: 3%;

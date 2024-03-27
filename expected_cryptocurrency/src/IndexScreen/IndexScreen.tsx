@@ -96,10 +96,11 @@ function IndexScreen() {
                 </div>
                 <div className='rowTitle'>
                     <p>로고</p>
-                    <p>이름</p>
-                    <p>변동값</p>
-                    <p>가격</p>
-                    <p>심볼</p>
+                    <p style={{width: '15%'}}>이름</p>
+                    <p style={{width: '10%'}}>변동값</p>
+                    <p style={{width: '20%', paddingLeft: '25px'}}>가격</p>
+                    <p style={{width: '10%'}}>심볼</p>
+                    <p style={{width: '3%'}}>랭크</p>
                 </div>
                 {coinDate.map((e, index) => {
                     return (

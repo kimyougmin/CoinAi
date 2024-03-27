@@ -10,9 +10,9 @@ function Navigation() {
                 </span>
             </h1>
             <div className='naviBtn'>
-                <p style={{marginRight: '10px'}}>Index</p>
+                <button className='indexBtn'>Index</button>
                 <p>|</p>
-                <p style={{marginLeft: '10px'}}>Coin Chat</p>
+                <button className='coinChatBtn'>Coin Chat</button>
             </div>
             <div className='naviBtn' style={{width: '9%'}}>
                 <p>Login</p>
