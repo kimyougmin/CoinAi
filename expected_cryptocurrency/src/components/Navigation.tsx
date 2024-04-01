@@ -5,9 +5,10 @@ import {useCookies} from "react-cookie";
 function Navigation() {
     const navi = useNavigate();
     const [,,removeCookie] = useCookies();
+
     const indexBtnHandler = () => {
         navi('/');
-        removeCookie('coinUuid')
+        removeCookie('coinUuid');
     }
     const coinChatBtnHandler = () => {
         navi('/main');

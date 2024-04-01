@@ -16,16 +16,21 @@
     display: flex;
     text-align: center;
 }
+.naviBtn {
+    display: flex;
+    text-align: center;
+}
+
 .naviBtn > p, button {
     text-align: center;
     border: none;
     background-color: black;
 }
-.indexBtn {
+.naviBtn > .indexBtn {
+    color: white;
     margin-right: 10px;
-    color: red;
 }
-.coinChatBtn {
+.naviBtn > .coinChatBtn {
     color: white;
     margin-left: 10px;
 }

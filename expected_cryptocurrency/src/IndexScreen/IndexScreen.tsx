@@ -5,6 +5,7 @@ import '../components/IndexNavigation.css'
 import Coins from "../typs/coins";
 import IndexRow from "../components/IndexRow";
 import './IndexScreen.css'
+import CoinIndexApi from "../components/CoinIndexApi";
 
 // CSS keyframes
 const jumboAnimation = keyframes`
@@ -40,7 +41,6 @@ const Jumbo = styled.div`
         mix-blend-mode: difference;
     }
 `;
-
 const MainContainer = styled.main`
     display: flex;
     flex-direction: column;
@@ -51,50 +51,17 @@ const MainContainer = styled.main`
     transition: background-color 0.3s ease-in-out;
     z-index: -1;
 `;
-function IndexScreen() {
-    const [coinDate, setCoinDate] = useState<Coins[]>([])
-    const url = 'https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0';
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': `${process.env.REACT_APP_CRYPTO_KEY}`,
-            'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
-        }
+const IndexScreen = () => {
+    const [coinDate, setCoinDate] = useState<Coins[]>([]);
+    const promise = CoinIndexApi();
+    const getData = () => {
+        promise.then((dummyData) => {
+            setCoinDate(dummyData);
+        });
     };
-    const coinSelect = () => {
-        try {
-            fetch(url, options)
-                .then((res) => res.json())
-                .then((res) => {
-                    const coinIndex:Coins[] = res.data.coins.map((e: Coins) => {
-                        return {
-                            change: e.change,
-                            iconUrl: e.iconUrl,
-                            name: e.name,
-                            price: e.price,
-                            uuid: e.uuid,
-                            symbol: e.symbol,
-                            sparkline: e.sparkline,
-                            rank: e.rank
-                        }
-                    })
-                    setCoinDate(coinIndex)
-                })
-        } catch (error) {
-            console.error(error);
-        }
-    }
     useEffect(() => {
-        coinSelect()
-        let interval = setInterval(() => {
-           coinSelect()
-        }, 5000)
-        return () => {
-            clearInterval(interval)
-        }
-    }, [])
-
-
+        getData();
+    }, []);
     return (
         <div className='' style={{paddingTop: '75px'}}>
             <Navigation/>
@@ -121,7 +88,6 @@ function IndexScreen() {
                             rank={e.rank}/>
                     )
                 })}
-
             </div>
             <MainContainer style={{
                 position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center',

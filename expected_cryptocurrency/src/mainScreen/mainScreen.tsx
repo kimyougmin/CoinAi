@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import styled, { keyframes } from 'styled-components';
 import {useCookies} from "react-cookie";
-import {clearInterval} from "node:timers";
+import Navigation from "../components/Navigation";
 
 // CSS keyframes
 const jumboAnimation = keyframes`
@@ -48,10 +48,6 @@ const MainContainer = styled.main`
   height: 100vh;
   background-color: black;
   transition: background-color 0.3s ease-in-out;
-
-  &.dark {
-    background-color: black;
-  }
 `;
 const options = {
     method: 'GET',
@@ -74,14 +70,18 @@ function MainScreen() {
             .then((res) => res.json())
             .then((res) => {console.log(res)})
             .catch((e) => {
-                console.log(e)
+                console.log(e);
             })
     },[])
     return (
         <MainContainer style={{position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center',
-            justifyContent: 'center'}} className="relative flex flex-col items-center justify-center transition-bg">
-            <div style={{position: 'absolute', inset: -10, overflow: "hidden"}} className="absolute inset-0 overflow-hidden">
-                <Jumbo style={{position: 'absolute', inset: '10px', opacity: 0.5}} className="jumbo absolute -inset-[10px] opacity-50" />
+            justifyContent: 'center'}}>
+            <Navigation />
+            <div style={{position: 'absolute'}}>
+
+            </div>
+            <div style={{position: 'absolute', inset: -10, overflow: "hidden"}}>
+                <Jumbo style={{position: 'absolute', inset: '10px', opacity: 0.5}}/>
             </div>
         </MainContainer>
     );
