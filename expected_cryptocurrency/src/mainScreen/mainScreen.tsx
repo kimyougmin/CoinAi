@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import styled, { keyframes } from 'styled-components';
 import {useCookies} from "react-cookie";
 import Navigation from "../components/Navigation";
+import CoinChat from "./components/CoinChat";
 
 // CSS keyframes
 const jumboAnimation = keyframes`
@@ -68,17 +69,19 @@ function MainScreen() {
         }
         fetch(url, options)
             .then((res) => res.json())
-            .then((res) => {console.log(res)})
+            .then((res) => {
+                console.log(res.data.history)
+            })
             .catch((e) => {
                 console.log(e);
             })
-    },[])
+    },[]);
     return (
         <MainContainer style={{position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center',
             justifyContent: 'center'}}>
             <Navigation />
             <div style={{position: 'absolute'}}>
-
+                <CoinChat />
             </div>
             <div style={{position: 'absolute', inset: -10, overflow: "hidden"}}>
                 <Jumbo style={{position: 'absolute', inset: '10px', opacity: 0.5}}/>

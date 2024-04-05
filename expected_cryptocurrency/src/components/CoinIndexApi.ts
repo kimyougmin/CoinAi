@@ -1,4 +1,4 @@
-import Coins from "../typs/coins";
+import Coins from "../typs/Coins";
 
 const CoinIndexApi = async (): Promise<Coins[]> => {
     const url = 'https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0';
@@ -26,6 +26,7 @@ const CoinIndexApi = async (): Promise<Coins[]> => {
                 rank: e.rank
             };
         });
+        console.log(coinIndex)
         return coinIndex;
     } catch (error) {
         console.error("Error fetching coin index:", error);

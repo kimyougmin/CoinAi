@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styled, { keyframes } from 'styled-components';
 import Navigation from "../components/Navigation";
 import '../components/IndexNavigation.css'
-import Coins from "../typs/coins";
+import Coins from "../typs/Coins";
 import IndexRow from "../components/IndexRow";
 import './IndexScreen.css'
 import CoinIndexApi from "../components/CoinIndexApi";
@@ -60,8 +60,10 @@ const IndexScreen = () => {
         });
     };
     useEffect(() => {
-        getData();
-    }, []);
+        setTimeout(() => {
+            getData();
+        }, 3000);
+    }, [coinDate]);
     return (
         <div className='' style={{paddingTop: '75px'}}>
             <Navigation/>
