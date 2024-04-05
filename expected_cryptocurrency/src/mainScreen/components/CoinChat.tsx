@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useCookies} from "react-cookie";
 import CoinOHLC from "../../typs/CoinOHLC";
 import ReactApexChart from 'react-apexcharts'
+import ApexOptions = ApexCharts.ApexOptions;
 
 function CoinChat() {
     const [coinHistory, setCoinHistory] = useState<CoinOHLC[]>([]);
@@ -53,7 +54,7 @@ function CoinChat() {
                 enabled: true,
             },
         },
-    };
+    } as ApexOptions;
     const series = [
         {
             data: coinHistory
