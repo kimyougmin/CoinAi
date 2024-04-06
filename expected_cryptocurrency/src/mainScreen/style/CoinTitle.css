@@ -1,0 +1,19 @@
+.coinTitleHeader {
+    display: flex;
+    border-bottom: grey solid 1px;
+}
+.coinTitleHeader > .icon {
+    width: 27px;
+    height: 27px;
+}
+.coinTitleHeader > .name {
+    color: white;
+}
+.coinTitleHeader > .symbol {
+    color: grey;
+
+}
+.coinTitleBottom {
+    display: block;
+    border-bottom: grey solid 1px;
+}

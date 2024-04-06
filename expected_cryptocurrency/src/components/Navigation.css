@@ -16,11 +16,6 @@
     display: flex;
     text-align: center;
 }
-.naviBtn {
-    display: flex;
-    text-align: center;
-}
-
 .naviBtn > p, button {
     text-align: center;
     border: none;
@@ -29,10 +24,12 @@
 .naviBtn > .indexBtn {
     color: white;
     margin-right: 10px;
+    background: none;
 }
 .naviBtn > .coinChatBtn {
     color: white;
     margin-left: 10px;
+    background: none;
 }
 h1 {
     margin-left: 3%;

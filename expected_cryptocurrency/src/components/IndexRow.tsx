@@ -19,7 +19,13 @@ function IndexRow({change, iconUrl, symbol, uuid, price, name, sparkline, rank}:
 
     const onClickHandler = () => {
         console.log('Click')
-        setCookie('coinUuid', uuid)
+        setCookie('coinUuid', {
+            uuid,
+            name,
+            symbol,
+            iconUrl,
+            price
+        })
         navi('/main')
     }
     return (

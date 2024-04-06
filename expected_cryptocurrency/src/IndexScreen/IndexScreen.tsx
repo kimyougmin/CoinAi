@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styled, { keyframes } from 'styled-components';
 import Navigation from "../components/Navigation";
-import '../components/IndexNavigation.css'
+import '../components/Navigation.css'
 import Coins from "../typs/Coins";
 import IndexRow from "../components/IndexRow";
 import './IndexScreen.css'
