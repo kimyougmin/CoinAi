@@ -81,13 +81,10 @@ const IndexScreen = () => {
                         <IndexRow
                             key={index}
                             change={e.change}
-                            iconUrl={e.iconUrl}
                             name={e.name}
                             price={e.price}
                             uuid={e.uuid}
-                            symbol={e.symbol}
-                            sparkline={e.sparkline}
-                            rank={e.rank}/>
+                            symbol={e.symbol}/>
                     )
                 })}
             </div>

@@ -6,14 +6,14 @@ import {useCookies} from "react-cookie";
 import {useNavigate} from "react-router-dom";
 
 const PositiveP = styled.p`
-    width: 10%;
+    width: 30%;
     color: red;
 `;
 const NegativeP = styled.p`
-    width: 10%;
+    width: 30%;
     color: blue;
 `;
-function IndexRow({change, iconUrl, symbol, uuid, price, name, sparkline, rank}: Coins) {
+function IndexRow({change, symbol, uuid, price, name}: Coins) {
     const [,setCookie ,] = useCookies();
     const navi = useNavigate();
 
@@ -23,19 +23,28 @@ function IndexRow({change, iconUrl, symbol, uuid, price, name, sparkline, rank}:
             uuid,
             name,
             symbol,
-            iconUrl,
             price
         })
         navi('/main')
     }
+    const priceManager = () => {
+        let priceFloat: number
+        parseFloat(price) < 1 ?
+            priceFloat = Math.ceil(parseFloat(price) * 100000) / 100000
+            :
+            priceFloat = Math.ceil(parseFloat(price) * 10) / 10;
+        return (
+                change > 0 ? <PositiveP>{priceFloat}</PositiveP> : <NegativeP>{priceFloat}</NegativeP>
+        )
+    }
     return (
         <div className='indexRow' onClick={onClickHandler}>
-            <img className='icon' src={iconUrl} onClick={onClickHandler}/>
-            <p style={{width: '15%'}}>{name}</p>
+            <div className='indexRow-header'>
+                <p className='header-name'>{name}</p>
+                <p className='header-symbol'>{symbol}</p>
+            </div>
             {change > 0 ? <PositiveP>{change}%</PositiveP> : <NegativeP>{change}%</NegativeP>}
-            <p style={{width: '20%'}}>{price}</p>
-            <p style={{width: '10%'}}>{symbol}</p>
-            <p style={{width: '2%'}}>{rank}</p>
+            {priceManager()}
         </div>
     );
 }

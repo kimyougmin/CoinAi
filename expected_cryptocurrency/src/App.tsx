@@ -2,7 +2,7 @@ import React from 'react';
 import "./App.css"
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import IndexScreen from "./IndexScreen/IndexScreen";
-import MainScreen from "./mainScreen/mainScreen";
+import MainScreen from "./mainScreen/MainScreen";
 import NotFound from "./NotFound/NotFound";
 
 const App = () => {

@@ -17,13 +17,10 @@ const CoinIndexApi = async (): Promise<Coins[]> => {
         const coinIndex: Coins[] = data.data.coins.map((e: Coins) => {
             return {
                 change: e.change,
-                iconUrl: e.iconUrl,
                 name: e.name,
                 price: e.price,
                 uuid: e.uuid,
                 symbol: e.symbol,
-                sparkline: e.sparkline,
-                rank: e.rank
             };
         });
         console.log(coinIndex)

@@ -21,7 +21,7 @@ function CoinTitle({name, price, iconUrl, symbol, change}: Coin) {
                         </div>
                     </div>
                 </div>
-                )
+                );
         } else if (parseFloat(change) < 0) {
             return (
                 <div className='coinTitleBottom'>
@@ -37,7 +37,7 @@ function CoinTitle({name, price, iconUrl, symbol, change}: Coin) {
                         </div>
                     </div>
                 </div>
-            )
+            );
         } else {
             return (
                 <div className='coinTitleBottom'>
@@ -47,7 +47,7 @@ function CoinTitle({name, price, iconUrl, symbol, change}: Coin) {
                     </div>
                     <p className='change' style={{color: 'black'}}>{change}%</p>
                 </div>
-            )
+            );
         }
     };
     return (

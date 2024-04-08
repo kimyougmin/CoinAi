@@ -63,7 +63,7 @@ function CoinChat({name}: Coin) {
     ];
 
     return (
-        <div>
+        <div style={{border: 'gray solid 1px'}}>
             <ReactApexChart
                 options={options}
                 series={series}

@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import styled from 'styled-components';
 import CoinChat from "./components/CoinChat";
 import CoinTitle from "./components/CoinTitle";
 import CoinIndex from "./components/CoinIndex";
@@ -7,16 +6,8 @@ import Navigation from "../components/Navigation";
 import {useCookies} from "react-cookie";
 import {useNavigate} from "react-router-dom";
 import Coin from "../typs/Coin";
+import './style/MainScreen.css';
 
-const MainContainer = styled.main`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: black;
-  transition: background-color 0.3s ease-in-out;
-`;
 const options = {
     method: 'GET',
     headers: {
@@ -62,19 +53,18 @@ function MainScreen() {
         }
     };
     return (
-        <MainContainer style={{position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center',
-            justifyContent: 'center'}}>
+        <div>
             <Navigation />
-            <div style={{position: 'absolute'}}>
+            <div className='mainScreen-body'>
                 <div>
                     <CoinTitle name={coinTitle.name} price={coinTitle.price} iconUrl={coinTitle.iconUrl} symbol={coinTitle.symbol} change={coinTitle.change}/>
                     <CoinChat name={coinTitle.name} price={coinTitle.price} iconUrl={coinTitle.iconUrl} symbol={coinTitle.symbol} change={coinTitle.change}/>
                 </div>
-                <div>
+                <div className='body-coinIndex'>
                     <CoinIndex />
                 </div>
             </div>
-        </MainContainer>
+        </div>
     );
 }
 

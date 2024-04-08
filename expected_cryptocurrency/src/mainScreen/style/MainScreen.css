@@ -1,0 +1,8 @@
+.mainScreen-body {
+    margin-top: 75px;
+    display: flex;
+    justify-items: center;
+}
+.body-coinIndex {
+    border: grey solid 1px;
+}

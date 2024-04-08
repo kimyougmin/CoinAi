@@ -1,22 +1,17 @@
 .indexRow {
     display: flex;
     width: 95%;
-    margin-left: 20px;
-    justify-content: space-between;
-    padding: 0 10px 20px 10px;
-    z-index: 3;
+    padding: 5px 10px 5px 10px;
+}
+.indexRow-header {
+    width: 40%;
+}
+.indexRow-header > .header-symbol {
+    color: grey;
+    font-size: 10px;
 }
 .icon {
     width: 20px;
     height: 20px;
     border-radius: 0.75rem;
-}
-.indexRowName {
-    width: 15%;
-}
-.indexRowChange {
-    width: 5%;
-}
-.indexRowPrice {
-    width: 20%;
 }
