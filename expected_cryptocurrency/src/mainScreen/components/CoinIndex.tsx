@@ -12,11 +12,13 @@ function CoinIndex() {
             setCoinDate(dummyData);
         });
     };
+
     useEffect(() => {
         setTimeout(() => {
             getData();
         }, 3000);
     }, [coinDate]);
+
     return (
         <div className='coinIndex'>
             {coinDate.map((e, index) => {

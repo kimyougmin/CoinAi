@@ -39,6 +39,7 @@ function CoinChat({name}: Coin) {
                 setCoinHistory(resArray);
             })
             .catch((e) => {
+                alert(`차트 조회에 실패하였습니다. \n ${e}`)
             });
     },[cookies.coinUuid]);
     const options = {

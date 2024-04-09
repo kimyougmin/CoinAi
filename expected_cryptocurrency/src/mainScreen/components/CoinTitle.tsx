@@ -8,7 +8,7 @@ function CoinTitle({name, price, iconUrl, symbol, change}: Coin) {
     const changeManager = () => {
         if (parseFloat(change) > 0) {
             return (
-                <div className='coinTitleBottom'>
+                <div className='coinTitleFooter'>
                     <div className='coinTitleBottom-top'>
                         <h3 className='price' style={{color: 'red'}}>{price}</h3>
                         <p style={{color: 'red'}}>dollar</p>
@@ -24,23 +24,23 @@ function CoinTitle({name, price, iconUrl, symbol, change}: Coin) {
                 );
         } else if (parseFloat(change) < 0) {
             return (
-                <div className='coinTitleBottom'>
-                    <div>
+                <div className='coinTitleFooter'>
+                    <div className='coinTitleBottom-top'>
                         <h3 className='price' style={{color: 'blue'}}>{price}</h3>
                         <p style={{color: 'blue'}}>dollar</p>
                     </div>
                     <div className='coinTitleBottom-bottom'>
-                        <p className='change' style={{color: 'blue'}}>- {change}%</p>
+                        <p className='change' style={{color: 'blue'}}>{change}%</p>
                         <div style={{display: "flex"}}>
                             <img className='arrowImg' src={arrowDown}/>
-                            <p style={{color: 'red'}}>{parseFloat(price) * parseFloat(change)}</p>
+                            <p style={{color: 'blue'}}>{parseFloat(price) * parseFloat(change)}</p>
                         </div>
                     </div>
                 </div>
             );
         } else {
             return (
-                <div className='coinTitleBottom'>
+                <div className='coinTitleFooter'>
                     <div>
                         <h3 className='price' style={{color: 'black'}}>{price}</h3>
                         <p style={{color: 'black'}}>dollar</p>

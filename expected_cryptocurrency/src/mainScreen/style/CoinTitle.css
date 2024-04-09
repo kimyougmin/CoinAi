@@ -1,6 +1,7 @@
 .coinTitle {
     background: white;
     margin-bottom: 10px;
+    padding: 0 10px 0 10px;
 }
 .coinTitleHeader {
     display: flex;
@@ -14,35 +15,35 @@
     margin-right: 10px;
 }
 .coinTitleHeader > .name {
-    color: white;
+    color: black;
     margin-right: 10px;
 }
 .coinTitleHeader > .symbol {
     color: grey;
 }
-.coinTitleBottom {
+.coinTitleFooter {
     display: block;
     padding: 15px 10px 15px 10px;
 }
-.coinTitleBottom > .coinTitleBottom-top {
+.coinTitleFooter > .coinTitleBottom-top {
     width: 30%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 10px;
 }
-.coinTitleBottom > .coinTitleBottom-top > .price {
+.coinTitleFooter > .coinTitleBottom-top > .price {
     font-size: 25px;
     margin-right: 5px;
     font-weight: bold;
 }
-.coinTitleBottom > .coinTitleBottom-bottom {
+.coinTitleFooter > .coinTitleBottom-bottom {
     width: 35%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.coinTitleBottom > .coinTitleBottom-bottom > div > img {
+.coinTitleFooter > .coinTitleBottom-bottom > div > img {
     width: 8px;
     height: 11px;
 }
