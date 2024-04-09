@@ -15,17 +15,14 @@ const NegativeP = styled.p`
 `;
 function IndexRow({change, symbol, uuid, price, name}: Coins) {
     const [,setCookie ,] = useCookies();
-    const navi = useNavigate();
 
     const onClickHandler = () => {
-        console.log('Click')
         setCookie('coinUuid', {
             uuid,
             name,
             symbol,
             price
         })
-        navi('/main')
     }
     const priceManager = () => {
         let priceFloat: number

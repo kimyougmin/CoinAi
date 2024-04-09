@@ -23,7 +23,6 @@ const CoinIndexApi = async (): Promise<Coins[]> => {
                 symbol: e.symbol,
             };
         });
-        console.log(coinIndex)
         return coinIndex;
     } catch (error) {
         console.error("Error fetching coin index:", error);

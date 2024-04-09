@@ -34,7 +34,7 @@ function MainScreen() {
             url = `https://coinranking1.p.rapidapi.com/coin/${cookies.coinUuid.uuid}?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`;
         }
         coinSearch(url)
-    }, []);
+    }, [cookies.coinUuid.uuid]);
 
     const coinSearch = async (url: string) => {
         try {
