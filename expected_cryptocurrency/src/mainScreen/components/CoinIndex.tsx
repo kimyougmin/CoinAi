@@ -18,7 +18,7 @@ function CoinIndex() {
         }, 3000);
     }, [coinDate]);
     return (
-        <div>
+        <div className='coinIndex'>
             {coinDate.map((e, index) => {
                 return (
                     <IndexRow

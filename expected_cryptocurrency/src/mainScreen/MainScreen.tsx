@@ -53,7 +53,7 @@ function MainScreen() {
         }
     };
     return (
-        <div>
+        <div className='mainScreen'>
             <Navigation />
             <div className='mainScreen-body'>
                 <div>

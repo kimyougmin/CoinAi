@@ -3,7 +3,6 @@ import Coins from "../typs/Coins";
 import './IndexRow.css'
 import styled from "styled-components";
 import {useCookies} from "react-cookie";
-import {useNavigate} from "react-router-dom";
 
 const PositiveP = styled.p`
     width: 30%;

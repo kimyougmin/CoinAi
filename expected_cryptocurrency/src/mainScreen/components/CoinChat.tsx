@@ -48,7 +48,7 @@ function CoinChat({name}: Coin) {
         },
         xaxis: {
             type: "datetime",
-            categories: coinHistory.map((e) => e.x)
+            categories: coinHistory
         },
         yaxis: {
             tooltip: {
@@ -63,13 +63,13 @@ function CoinChat({name}: Coin) {
     ];
 
     return (
-        <div style={{border: 'gray solid 1px'}}>
+        <div style={{background: 'white'}}>
             <ReactApexChart
                 options={options}
                 series={series}
                 type={'candlestick'}
-                height={350}
-                width={700}
+                height={450}
+                width={900}
             />
         </div>
     );

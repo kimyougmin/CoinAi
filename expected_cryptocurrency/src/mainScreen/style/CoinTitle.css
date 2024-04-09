@@ -1,3 +1,7 @@
+.coinTitle {
+    background: white;
+    margin-bottom: 10px;
+}
 .coinTitleHeader {
     display: flex;
     border-bottom: grey solid 1px;
@@ -18,7 +22,6 @@
 }
 .coinTitleBottom {
     display: block;
-    border-bottom: grey solid 1px;
     padding: 15px 10px 15px 10px;
 }
 .coinTitleBottom > .coinTitleBottom-top {

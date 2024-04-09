@@ -51,7 +51,7 @@ function CoinTitle({name, price, iconUrl, symbol, change}: Coin) {
         }
     };
     return (
-        <div>
+        <div className='coinTitle'>
             <div className='coinTitleHeader'>
                 <img src={iconUrl} className='icon'/>
                 <h3 className='name'>{name}</h3>
