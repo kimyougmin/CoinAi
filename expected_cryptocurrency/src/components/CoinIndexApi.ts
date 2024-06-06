@@ -1,7 +1,7 @@
 import Coins from "../typs/Coins";
 
 const CoinIndexApi = async (): Promise<Coins[]> => {
-    const url = 'https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0';
+    const url = 'https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&orderBy=marketCap&orderDirection=desc&limi';
     const options = {
         method: 'GET',
         headers: {
