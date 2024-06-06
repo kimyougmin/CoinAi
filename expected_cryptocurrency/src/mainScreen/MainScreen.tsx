@@ -31,7 +31,7 @@ function MainScreen() {
         if (cookies.coinUuid === undefined) {
             url = `https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`;
         } else {
-            url = `https://coinranking1.p.rapidapi.com/coin/${cookies.coinUuid.uuid}?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`;
+            url = `https://coinranking1.p.rapidapi.com/coin/${cookies.coinUuid}?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`;
         }
         coinSearch(url)
     }, []);
