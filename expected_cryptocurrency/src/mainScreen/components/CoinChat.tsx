@@ -7,9 +7,6 @@ import Coin from "../../typs/Coin";
 
 const fetchOptions = {
     method: 'GET',
-    params: {
-        interval: 'minute'
-    },
     headers: {
         'X-RapidAPI-Key': `${process.env.REACT_APP_CRYPTO_KEY}`,
         'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
@@ -21,10 +18,10 @@ function CoinChat({name}: Coin) {
 
     useEffect(() => {
         let url = '';
-        if (cookies.coinUuid === undefined) {
-            url = `https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd/ohlc`;
+        if (cookies.coinUuid.uuid === undefined) {
+            url = `https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd/ohlc?referenceCurrencyUuid=yhjMzLPhuIDl&interval=day`;
         } else {
-            url = `https://coinranking1.p.rapidapi.com/coin/${cookies.coinUuid.uuid}/ohlc`;
+            url = `https://coinranking1.p.rapidapi.com/coin/${cookies.coinUuid.uuid}/ohlc?referenceCurrencyUuid=yhjMzLPhuIDl&interval=day`;
         }
         fetch(url, fetchOptions)
             .then((res) => res.json())

@@ -16,6 +16,7 @@ const options = {
     }
 };
 function MainScreen() {
+    console.log(process.env.REACT_APP_CRYPTO_KEY)
     const [cookies,] = useCookies(['coinUuid']);
     const [coinTitle, setCoinTitle] = useState<Coin>({
         iconUrl: '',
@@ -28,13 +29,13 @@ function MainScreen() {
 
     useEffect(() => {
         let url = '';
-        if (cookies.coinUuid === undefined) {
+        if (cookies.coinUuid.uuid === undefined) {
             url = `https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`;
         } else {
             url = `https://coinranking1.p.rapidapi.com/coin/${cookies.coinUuid.uuid}?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`;
         }
         coinSearch(url)
-    }, [cookies.coinUuid.uuid]);
+    }, []);
 
     const coinSearch = async (url: string) => {
         try {

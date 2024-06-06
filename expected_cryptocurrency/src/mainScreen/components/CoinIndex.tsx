@@ -17,7 +17,7 @@ function CoinIndex() {
         setTimeout(() => {
             getData();
         }, 3000);
-    }, [coinDate]);
+    }, []);
 
     return (
         <div className='coinIndex'>
