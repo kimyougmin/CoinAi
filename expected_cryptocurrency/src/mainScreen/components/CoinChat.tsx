@@ -18,7 +18,7 @@ function CoinChat({name}: Coin) {
 
     useEffect(() => {
         let url = '';
-        if (cookies.coinUuid.uuid === undefined) {
+        if (cookies.coinUuid === undefined) {
             url = `https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd/ohlc?referenceCurrencyUuid=yhjMzLPhuIDl&interval=day`;
         } else {
             url = `https://coinranking1.p.rapidapi.com/coin/${cookies.coinUuid.uuid}/ohlc?referenceCurrencyUuid=yhjMzLPhuIDl&interval=day`;

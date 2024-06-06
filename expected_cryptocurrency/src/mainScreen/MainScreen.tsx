@@ -28,7 +28,7 @@ function MainScreen() {
 
     useEffect(() => {
         let url = '';
-        if (cookies.coinUuid.uuid === undefined) {
+        if (cookies.coinUuid === undefined) {
             url = `https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`;
         } else {
             url = `https://coinranking1.p.rapidapi.com/coin/${cookies.coinUuid.uuid}?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`;
