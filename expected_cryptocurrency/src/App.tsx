@@ -7,7 +7,7 @@ import {useCookies} from "react-cookie";
 
 const App = () => {
     const [cookies,setCookie, ] = useCookies(['coinUuid']);
-    setCookie(cookies.coinUuid.uuid, 'Qwsogvtv82FCd')
+    setCookie(cookies.coinUuid, 'Qwsogvtv82FCd')
     return (
         <BrowserRouter>
             <Routes>
