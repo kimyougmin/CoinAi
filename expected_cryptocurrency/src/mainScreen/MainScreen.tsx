@@ -16,7 +16,6 @@ const options = {
     }
 };
 function MainScreen() {
-    console.log(process.env.REACT_APP_CRYPTO_KEY)
     const [cookies,] = useCookies(['coinUuid']);
     const [coinTitle, setCoinTitle] = useState<Coin>({
         iconUrl: '',
