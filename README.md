@@ -16,6 +16,7 @@
 * Front: React, TypeScript, HTML, CSS
 * 버전 및 이슈관리: Github, Github Issues, Github Project
 * 디자인: figma
+* 배포 URL: http://adlii.kro.kr/
 <br/>
 <br/>
 
