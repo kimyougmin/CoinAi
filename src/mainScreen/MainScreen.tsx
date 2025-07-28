@@ -3,7 +3,6 @@ import CoinChat from "./components/CoinChat";
 import CoinTitle from "./components/CoinTitle";
 import CoinIndex from "./components/CoinIndex";
 import Navigation from "./components/Navigation";
-import {useCookies} from "react-cookie";
 import {useNavigate} from "react-router-dom";
 import Coin from "../typs/Coin";
 import './style/MainScreen.css';
@@ -16,7 +15,7 @@ const options = {
     }
 };
 function MainScreen() {
-  const [cookies] = useCookies(['coinUuid']);
+  const [coinUuid, setCoinUuid] = useState("Qwsogvtv82FCd");
   const [coinTitle, setCoinTitle] = useState<Coin>({
     iconUrl: '',
     name: '',
@@ -27,10 +26,9 @@ function MainScreen() {
   const navi = useNavigate();
 
   useEffect(() => {
-    const uuid = cookies.coinUuid || "Qwsogvtv82FCd";
-    const url = `https://coinranking1.p.rapidapi.com/coin/${uuid}?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`;
+    const url = `https://coinranking1.p.rapidapi.com/coin/${coinUuid}?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`;
     fetchCoinDetail(url);
-  }, [cookies.coinUuid]);
+  }, [coinUuid]); // coinUuid 변경 시 데이터 요청
 
   const fetchCoinDetail = async (url: string) => {
     try {
@@ -57,7 +55,7 @@ function MainScreen() {
             <CoinTitle {...coinTitle} />
             <CoinChat {...coinTitle} />
           </div>
-          <CoinIndex/>
+          <CoinIndex setCoinUuid={setCoinUuid} />
         </div>
       </div>
     </div>

@@ -2,7 +2,6 @@ import React from 'react';
 import Coins from "../../typs/Coins";
 import '../style/IndexRow.css'
 import styled from "styled-components";
-import { useCookies } from "react-cookie";
 
 const PositiveP = styled.p`
   width: 30%;
@@ -13,11 +12,13 @@ const NegativeP = styled.p`
   color: blue;
 `;
 
-function IndexRow({ change, symbol, uuid, price, name }: Coins) {
-  const [, setCookie] = useCookies(['coinUuid']);
+interface IndexRowProps extends Coins {
+  setCoinUuid: (uuid: string) => void;
+}
 
+function IndexRow({ change, symbol, uuid, price, name, setCoinUuid }: IndexRowProps) {
   const onClickHandler = () => {
-    setCookie('coinUuid', uuid, { path: '/' });
+    setCoinUuid(uuid); // 쿠키 대신 상태 변경
   };
 
   const formatPrice = (price: string) => {

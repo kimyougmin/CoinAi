@@ -4,7 +4,10 @@ import CoinIndexApi from "../../apis/CoinIndexApi";
 import "../style/CoinIndex.css"
 import IndexRow from "./IndexRow";
 
-function CoinIndex() {
+interface CoinIndexProps {
+  setCoinUuid: (uuid: string) => void;
+}
+function CoinIndex({ setCoinUuid }: CoinIndexProps) {
   const [coinData, setCoinData] = useState<Coins[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -28,8 +31,8 @@ function CoinIndex() {
 
   return (
     <div className='coinIndex'>
-      {coinData.map((e) => (
-        <IndexRow key={e.uuid} {...e} />
+      {coinData.map((coin: Coins, index) => (
+        <IndexRow key={index} {...coin} setCoinUuid={setCoinUuid} />
       ))}
     </div>
   );
