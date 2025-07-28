@@ -18,7 +18,7 @@ function CoinChat({ name }: Coin) {
   const [cookies] = useCookies(['coinUuid']);
 
   useEffect(() => {
-    const uuid = cookies.coinUuid?.uuid ?? "Qwsogvtv82FCd"; // ✅ uuid 추출
+    const uuid = cookies.coinUuid?.uuid ?? "Qwsogvtv82FCd";
     const url = `https://coinranking1.p.rapidapi.com/coin/${uuid}/ohlc?referenceCurrencyUuid=yhjMzLPhuIDl&interval=day`;
 
     fetch(url, fetchOptions)
@@ -68,9 +68,6 @@ function CoinChat({ name }: Coin) {
       },
     },
   };
-
-
-
 
   const series = [
     {

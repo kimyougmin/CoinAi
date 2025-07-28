@@ -17,7 +17,6 @@ function IndexRow({ change, symbol, uuid, price, name }: Coins) {
   const [, setCookie] = useCookies(['coinUuid']);
 
   const onClickHandler = () => {
-    // ✅ 무조건 문자열로 저장 (객체 전체를 저장하지 않음)
     setCookie('coinUuid', uuid, { path: '/' });
   };
 
