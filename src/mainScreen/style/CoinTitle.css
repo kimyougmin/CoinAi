@@ -1,49 +1,60 @@
 .coinTitle {
-    background: white;
-    margin-bottom: 10px;
-    padding: 0 10px 0 10px;
+  background: white;
+  margin-bottom: 10px;
+  padding: 0 10px;
 }
+
 .coinTitleHeader {
-    display: flex;
-    border-bottom: grey solid 1px;
-    align-items: center;
-    padding: 15px 10px 15px 10px;
+  display: flex;
+  align-items: center;
+  padding: 15px 10px;
+  border-bottom: 1px solid grey;
 }
-.coinTitleHeader > .icon {
-    width: 27px;
-    height: 27px;
-    margin-right: 10px;
+
+.coinTitleHeader .icon {
+  width: 27px;
+  height: 27px;
+  margin-right: 10px;
 }
-.coinTitleHeader > .name {
-    color: black;
-    margin-right: 10px;
+
+.coinTitleHeader .name {
+  color: black;
+  margin-right: 10px;
 }
-.coinTitleHeader > .symbol {
-    color: grey;
+
+.coinTitleHeader .symbol {
+  color: grey;
 }
+
 .coinTitleFooter {
-    display: block;
-    padding: 15px 10px 15px 10px;
+  padding: 15px 10px;
 }
-.coinTitleFooter > .coinTitleBottom-top {
-    width: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
+
+.coinTitleBottom-top {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 10px;
 }
-.coinTitleFooter > .coinTitleBottom-top > .price {
-    font-size: 25px;
-    margin-right: 5px;
-    font-weight: bold;
+
+.price {
+  font-size: 25px;
+  font-weight: bold;
 }
-.coinTitleFooter > .coinTitleBottom-bottom {
-    width: 35%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+.coinTitleBottom-bottom {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
-.coinTitleFooter > .coinTitleBottom-bottom > div > img {
-    width: 8px;
-    height: 11px;
+
+.arrowImg {
+  width: 8px;
+  height: 11px;
+  margin-right: 4px;
+}
+
+.changeValueContainer {
+  display: flex;
+  align-items: center;
 }

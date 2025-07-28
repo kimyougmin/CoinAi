@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import Coins from "../../typs/Coins";
-import CoinIndexApi from "../../components/CoinIndexApi";
+import CoinIndexApi from "../../apis/CoinIndexApi";
 import "../style/CoinIndex.css"
-import IndexRow from "../../components/IndexRow";
+import IndexRow from "./IndexRow";
 
 function CoinIndex() {
     const [coinDate, setCoinDate] = useState<Coins[]>([]);

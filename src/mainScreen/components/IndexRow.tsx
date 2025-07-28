@@ -1,5 +1,5 @@
 import React from 'react';
-import Coins from "../typs/Coins";
+import Coins from "../../typs/Coins";
 import './IndexRow.css'
 import styled from "styled-components";
 import {useCookies} from "react-cookie";
