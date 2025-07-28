@@ -2,7 +2,7 @@ import React from 'react';
 import {useNavigate} from "react-router-dom";
 import {useCookies} from "react-cookie";
 import styled, {keyframes} from "styled-components";
-import './Navigation.css'
+import '../style/Navigation.css'
 
 const jumboAnimation = keyframes`
   from {
