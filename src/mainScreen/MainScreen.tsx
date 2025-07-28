@@ -16,58 +16,54 @@ const options = {
     }
 };
 function MainScreen() {
-    const [cookies,] = useCookies(['coinUuid']);
-    const [coinTitle, setCoinTitle] = useState<Coin>({
-        iconUrl: '',
-        name: '',
-        price: '',
-        symbol: '',
-        change: ''
-    });
-    const navi = useNavigate();
+  const [cookies] = useCookies(['coinUuid']);
+  const [coinTitle, setCoinTitle] = useState<Coin>({
+    iconUrl: '',
+    name: '',
+    price: '',
+    symbol: '',
+    change: ''
+  });
+  const navi = useNavigate();
 
-    useEffect(() => {
-        let url = '';
-        if (cookies.coinUuid === undefined) {
-            url = `https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`;
-        } else {
-            url = `https://coinranking1.p.rapidapi.com/coin/${cookies.coinUuid}?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`;
-        }
-        coinSearch(url)
-    }, []);
+  useEffect(() => {
+    const uuid = cookies.coinUuid || "Qwsogvtv82FCd";
+    const url = `https://coinranking1.p.rapidapi.com/coin/${uuid}?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`;
+    fetchCoinDetail(url);
+  }, [cookies.coinUuid]);
 
-    const coinSearch = async (url: string) => {
-        try {
-            const response = await fetch(url, options);
-            const result = await response.json();
-            setCoinTitle({
-                name: result.data.coin.name,
-                price: result.data.coin.price,
-                iconUrl: result.data.coin.iconUrl,
-                symbol: result.data.coin.symbol,
-                change: result.data.coin.change
-            });
-        } catch (error) {
-            alert(`조회 중 오류가 발생!\n${error}`);
-            navi('/');
-        }
-    };
-    return (
-        <div className='mainScreen'>
-            <Navigation />
-            <div className='mainScreen-body'>
-              <div>
-                <div className='coin-body'>
-                  <CoinTitle name={coinTitle.name} price={coinTitle.price} iconUrl={coinTitle.iconUrl}
-                             symbol={coinTitle.symbol} change={coinTitle.change}/>
-                  <CoinChat name={coinTitle.name} price={coinTitle.price} iconUrl={coinTitle.iconUrl}
-                            symbol={coinTitle.symbol} change={coinTitle.change}/>
-                </div>
-                <CoinIndex/>
-              </div>
-            </div>
+  const fetchCoinDetail = async (url: string) => {
+    try {
+      const response = await fetch(url, options);
+      const result = await response.json();
+
+      if (!result?.data?.coin) throw new Error("No coin data");
+
+      const { name, price, iconUrl, symbol, change } = result.data.coin;
+      setCoinTitle({ name, price, iconUrl, symbol, change });
+    } catch (error) {
+      console.error("Coin fetch error:", error);
+      alert("조회 중 오류가 발생했습니다.");
+      navi('/');
+    }
+  };
+
+  return (
+    <div className='mainScreen'>
+      <Navigation />
+      <div className='mainScreen-body'>
+        <div>
+          <div className='coin-body'>
+            <CoinTitle {...coinTitle} />
+            <CoinChat {...coinTitle} />
+          </div>
+          <CoinIndex/>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
+
+
 
 export default MainScreen;
