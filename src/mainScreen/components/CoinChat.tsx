@@ -82,7 +82,7 @@ function CoinChat({ name }: Coin) {
         options={options}
         series={series}
         type={'candlestick'}
-        height={450}
+        height={600}
         width={900}
       />
 

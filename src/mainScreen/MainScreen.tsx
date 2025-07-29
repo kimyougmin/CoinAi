@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 import {useNavigate} from "react-router-dom";
 import Coin from "../typs/Coin";
 import './style/MainScreen.css';
+import PredictionPrice from "./components/PredictionPrice";
 
 const options = {
     method: 'GET',
@@ -51,17 +52,23 @@ function MainScreen() {
       <Navigation />
       <div className='mainScreen-body'>
         <div>
-          <div className='coin-body'>
-            <CoinTitle {...coinTitle} />
-            <CoinChat {...coinTitle} />
+          <div className="coin-body">
+            <div className="coin-item">
+              <CoinTitle {...coinTitle} />
+            </div>
+            <div className="coin-item">
+              <CoinChat {...coinTitle} />
+            </div>
+            <div className="coin-item">
+              <PredictionPrice/>
+            </div>
           </div>
-          <CoinIndex setCoinUuid={setCoinUuid} />
+          <CoinIndex setCoinUuid={setCoinUuid}/>
         </div>
       </div>
     </div>
   );
 }
-
 
 
 export default MainScreen;
